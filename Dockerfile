@@ -5,6 +5,7 @@ ARG VERSION=6.1.71
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && \
+      apt-get -y dist-upgrade && \
       apt-get install -y --no-install-recommends ca-certificates procps curl openjdk-8-jre-headless && \
       curl -sSL https://dl.ui.com/unifi/${VERSION}/unifi_sysvinit_all.deb -o /tmp/unifi-${VERSION}.deb && \
       apt-get install -y --no-install-recommends /tmp/unifi-${VERSION}.deb && \
