@@ -4,7 +4,8 @@ ARG VERSION=6.5.54
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN apt-get update && \
+RUN (for distribution in focal focal-updates focal-security; do echo deb http://archive.ubuntu.com/ubuntu/ ${distribution} main universe; done;) > /etc/apt/sources.list && \
+      apt-get update && \
       apt-get -y dist-upgrade && \
       apt-get install -y --no-install-recommends ca-certificates procps curl openjdk-8-jre-headless && \
       curl -sSL https://dl.ui.com/unifi/${VERSION}/unifi_sysvinit_all.deb -o /tmp/unifi-${VERSION}.deb && \
