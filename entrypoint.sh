@@ -4,5 +4,5 @@ set -e
 if [ -n "$1" ]; then
   exec "$@"
 else
-  exec /bin/jsvc -cwd /usr/lib/unifi -home /usr/lib/jvm/java-8-openjdk-amd64 -cp /usr/share/java/commons-daemon.jar:/usr/lib/unifi/lib/ace.jar -pidfile /var/run/unifi/unifi.pid -procname unifi -umask 027 -user unifi -Dunifi.datadir=/var/lib/unifi -Dunifi.logdir=/var/log/unifi -Dunifi.rundir=/var/run/unifi -Dunifi.core.enabled=false -Xmx1024M -Djava.awt.headless=true -Dfile.encoding=UTF-8 -nodetach com.ubnt.ace.Launcher start
+  exec /usr/bin/java -Dfile.encoding=UTF-8 -Djava.awt.headless=true -Dapple.awt.UIElement=true -Dunifi.core.enabled=false -Xmx1024M -XX:+UseParallelGC -XX:+CrashOnOutOfMemoryError -XX:ErrorFile=/usr/lib/unifi/logs/hs_err_pid%p.log -Dunifi.datadir=/usr/lib/unifi/data -Dunifi.logdir=/usr/lib/unifi/logs -Dunifi.rundir=/usr/lib/unifi/run -jar /usr/lib/unifi/lib/ace.jar start
 fi
