@@ -11,3 +11,6 @@ jobs:
       - uses: actions/checkout@v4
       - name: build container
         run: docker build -t unifi-controller .
+      - name: start container
+        run: docker run --detach --name unifi-controller unifi-controller
+      - run: docket ps -a
