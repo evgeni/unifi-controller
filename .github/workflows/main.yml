@@ -12,6 +12,6 @@ jobs:
       - name: build container
         run: docker build -t unifi-controller .
       - name: start container
-        run: docker run --detach --name unifi-controller unifi-controller
+        run: docker run --detach --name unifi-controller --publish 8443:8443 unifi-controller
       - run: docker ps -a
       - run: curl -k https://127.0.0.1:8443/
