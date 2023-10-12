@@ -1,0 +1,26 @@
+name: Update
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '4 4 * * 0'
+
+env:
+  GIT_AUTHOR_NAME: github-actions
+  GIT_AUTHOR_EMAIL: actions@github.com
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    if: github.repository_owner == 'evgeni'
+    steps:
+    - uses: actions/checkout@v4
+    - run: make update
+    - name: Open a PR
+      uses: peter-evans/create-pull-request@v5
+      with:
+        commit-message: "Update container"
+        branch: "bump-container"
+        title: "Update container"
+        body: ''
+        delete-branch: true
