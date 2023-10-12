@@ -13,4 +13,4 @@ jobs:
         run: docker build -t unifi-controller .
       - name: start container
         run: docker run --detach --name unifi-controller unifi-controller
-      - run: docket ps -a
+      - run: docker ps -a
