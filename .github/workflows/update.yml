@@ -23,6 +23,6 @@ jobs:
       with:
         commit-message: "Update container to ${{ env.UNIFI_VERSION }}"
         branch: "bump-container"
-        title: "Update container"
+        title: "Update container to ${{ env.UNIFI_VERSION }}"
         body: ''
         delete-branch: true
