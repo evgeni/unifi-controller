@@ -5,6 +5,10 @@ on:
   schedule:
     - cron: '4 4 * * 0'
 
+concurrency:
+  group: ${{ github.ref_name }}-${{ github.workflow }}
+  cancel-in-progress: true
+
 env:
   GIT_AUTHOR_NAME: github-actions
   GIT_AUTHOR_EMAIL: actions@github.com
