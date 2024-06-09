@@ -1,6 +1,6 @@
 FROM ubuntu:20.04
 
-ARG VERSION=8.1.127
+ARG VERSION=8.2.93
 
 ENV DEBIAN_FRONTEND=noninteractive
 
