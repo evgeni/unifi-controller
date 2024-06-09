@@ -28,5 +28,5 @@ jobs:
         commit-message: "Update container to ${{ env.UNIFI_VERSION }}"
         branch: "bump-container"
         title: "Update container to ${{ env.UNIFI_VERSION }}"
-        body: "Release notes: https://community.ui.com/search/releases/?q=Network+Application+${{ env.UNIFI_VERSION }}"
+        body: "Release notes: https://community.ui.com/releases/r/network/${{ env.UNIFI_VERSION }}"
         delete-branch: true
