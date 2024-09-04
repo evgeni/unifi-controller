@@ -23,7 +23,7 @@ jobs:
     - name: Find out version
       run: echo UNIFI_VERSION=$(make version) >> $GITHUB_ENV
     - name: Open a PR
-      uses: peter-evans/create-pull-request@v6
+      uses: peter-evans/create-pull-request@v7
       with:
         commit-message: "Update container to ${{ env.UNIFI_VERSION }}"
         branch: "bump-container"
