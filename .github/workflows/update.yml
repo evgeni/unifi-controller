@@ -30,3 +30,4 @@ jobs:
         title: "Update container to ${{ env.UNIFI_VERSION }}"
         body: "Release notes: https://community.ui.com/releases/r/network/${{ env.UNIFI_VERSION }}"
         delete-branch: true
+        token: ${{ secrets.GITHUB_TOKEN }}
