@@ -1,13 +1,12 @@
-FROM ubuntu:20.04
+FROM debian:13
 
 ARG VERSION=9.5.21
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN (for distribution in focal focal-updates focal-security; do echo deb http://archive.ubuntu.com/ubuntu/ ${distribution} main universe; done;) > /etc/apt/sources.list && \
-      apt-get update && \
+RUN apt-get update && \
       apt-get -y dist-upgrade && \
-      apt-get install -y --no-install-recommends ca-certificates procps curl openjdk-17-jre-headless && \
+      apt-get install -y --no-install-recommends ca-certificates procps curl openjdk-21-jre-headless && \
       curl -sSL https://dl.ui.com/unifi/${VERSION}/unifi_sysvinit_all.deb -o /tmp/unifi-${VERSION}.deb && \
       apt-get install -y --no-install-recommends /tmp/unifi-${VERSION}.deb && \
       apt-get clean && \
