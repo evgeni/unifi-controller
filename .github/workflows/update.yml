@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.repository_owner == 'evgeni'
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v6
     - run: make update
     - name: Find out version
       run: echo UNIFI_VERSION=$(make version) >> $GITHUB_ENV
