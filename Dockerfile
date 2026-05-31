@@ -6,7 +6,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && \
       apt-get -y dist-upgrade && \
-      apt-get install -y --no-install-recommends ca-certificates procps curl openjdk-21-jre-headless && \
+      apt-get install -y --no-install-recommends ca-certificates procps curl openjdk-25-jre-headless && \
       curl -fsSL -o /etc/apt/keyrings/mongodb.asc https://www.mongodb.org/static/pgp/server-8.0.asc && \
       echo "deb [ signed-by=/etc/apt/keyrings/mongodb.asc ] https://repo.mongodb.org/apt/debian bookworm/mongodb-org/8.0 main" > /etc/apt/sources.list.d/mongodb-org.list && \
       apt-get update && \
