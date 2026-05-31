@@ -1,6 +1,6 @@
 FROM debian:13
 
-ARG VERSION=10.3.58
+ARG VERSION=10.4.57
 
 ENV DEBIAN_FRONTEND=noninteractive
 
